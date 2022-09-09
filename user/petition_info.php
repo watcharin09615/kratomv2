@@ -83,7 +83,6 @@
                         </div>
                     </div>
                 </div>
-                <form method="POST" id="register" action="update_status.php?ID=<?php echo $id;?>">
                     <div class="row row-space">
                         <div>
                             <div class="input-group">
@@ -93,41 +92,14 @@
                         </div>
                         <div class="col-2">
                         <div class="input-group">
-                        <?php
-                            if ($row_am['status'] == 3){
-                                ?>
-                                <input class="input--style-4" type="text" value="เสร็จสิ้น" disabled>
-                                <?php
-                            }else{
-                                ?>
-                                <select class="form-control" name="status" id="status" required>
+                                <select class="form-control" name="status" id="status" disabled>
                                     <option value='1' <?php if ($row_am['status'] == 1) echo "selected"; ?>>รอการตรวจสอบ</option>
                                     <option value='2' <?php if ($row_am['status'] == 2) echo "selected"; ?>>กำลังดำเนินการ</option>
                                     <option value='3' <?php if ($row_am['status'] == 3) echo "selected"; ?>>เสร็จสิ้น</option>
                                 </select> 
-
-                                <?php
-                            }
-
-                        ?>
-                        
                         </div>
                     </div>
                     </div>
-                    <?php 
-                    if ($row_am['status'] != 3) {
-                        ?> 
-                        <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--blue" type="submit" id="reg_btn">ยืนยัน</button>
-                        </div>
-                        <?php
-                    }else{
-                        
-
-                    }
-                    ?>
-                
-
                 </form>
             </div>
         </div>

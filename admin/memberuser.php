@@ -33,7 +33,7 @@
                         </ol>
                         <div class="card mb-4">
                             <div class="card-body">
-                                <a target="_blank" href="register.php">เพิ่มสมาชิกผู้ใช้งานทั่วไป</a>
+                                <a href="register.php">เพิ่มสมาชิกผู้ใช้งานทั่วไป</a>
                             </div>
                         </div>
                         <div class="card mb-4">

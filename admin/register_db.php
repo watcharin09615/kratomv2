@@ -14,8 +14,7 @@ include('../condb.php');
   if($num > 0)
   {
   echo "<script>";
-  echo $a_pass1;
-  echo "alert(' Username นี้มีผู้ใช้งานแล้วกรุณาเปลี่ยน Username ! $a_pass1 / $a_pass2');";
+  echo "alert(' Username นี้มีผู้ใช้งานแล้วกรุณาเปลี่ยน Username !');";
   echo "window.history.back();";
   echo "</script>";
   }else{
