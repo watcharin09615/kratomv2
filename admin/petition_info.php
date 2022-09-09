@@ -146,4 +146,17 @@
 </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
 
 </html>
-<!-- end document-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+  $('#status').change(function() {
+    var status = $(this).val();
+      $.ajax({
+      type: "POST",
+      url: "ajax_succeed.php",
+      data: {status:status,function:'succeed'},
+      success: function(data){
+          $('#status').html(data); 
+      }
+    });
+  });
+</script>
