@@ -31,7 +31,7 @@ include('../condb.php');
     if($result){
     echo "<script type='text/javascript'>";
     echo "alert('ลงทะเบียนสำเร็จ');";
-    echo "window.location = 'infouser.php'; ";
+    echo "window.location = 'memberuser.php'; ";
     echo "</script>";
     }else{
     echo "<script type='text/javascript'>";

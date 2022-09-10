@@ -83,7 +83,7 @@
                         </div>
                     </div>
                 </div>
-                <form method="POST" id="register" action="update_status.php?ID=<?php echo $id;?>">
+                <form method="POST" id="register" action="update_status.php?ID=<?php echo md5($row_am['id_petition']);?>">
                     <div class="row row-space">
                         <div>
                             <div class="input-group">
@@ -119,12 +119,40 @@
                                 <label class="label">ผลการอนุมัติ</label>
                             </div>
                         </div>
-                        <div class="col-2">
-                            <div class="input-group"> 
-                                <select class="form-control" name="approved" id="approved" value="NULL">
-                                </select>
-                            </div>
-                        </div>
+                        <?php 
+                        if ($row_am['approved'] != null) {
+
+                            if ($row_am['approved'] == 1) {
+                                ?> 
+                                <div class="col-2">
+                                    <div class="input-group"> 
+                                        <input type="text" value="อนุมัติใบรับรอง" class="input--style-4" disabled>
+                                    </div>
+                                </div>
+                                
+                                <?php
+                            }elseif($row_am['appoved'] == 0){
+                                ?> 
+                                <div class="col-2">
+                                    <div class="input-group"> 
+                                        <input type="text" value="ไม่อนุมัติใบรับรอง" class="input--style-4" disabled>
+                                    </div>
+                                </div>
+                                
+                                <?php
+                            };
+                        }else{
+                                ?>
+                                <div class="col-2">
+                                    <div class="input-group"> 
+                                        <select class="form-control" name="approved" id="approved" value="NULL">
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                                <?php
+                        }
+                        ?>
                     </div>
                 </div>
                     <?php 

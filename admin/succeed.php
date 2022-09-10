@@ -3,6 +3,7 @@
     <head>
         <?php
         include('header.php');
+        $id = $_REQUEST["ID"];
         ?>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -18,30 +19,35 @@
     <body class="sb-nav-fixed">
         <?php
             include('menu.php'); 
+            $id = $_REQUEST["ID"];
         ?>
             <div id="layoutSidenav_content">
                 <main>
-                <div class="container-fluid px-4">
-                <h1 class="mt-4">เพิ่มรูปใบรับรอง</h1>
-                <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-                    <div class="file-upload">
-                    <div class="image-upload-wrap">
-                        <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
-                        <div class="drag-text">
-                        <h3>ลากและวางไฟล์หรือเลือกเพิ่มรูปภาพ</h3>
-                        </div>
-                    </div>
-                    <div class="file-upload-content">
-                        <img class="file-upload-image" src="#" alt="your image" />
-                        <div class="image-title-wrap">
-                        <button type="button" onclick="removeUpload()" class="remove-image">ลบรูป <span class="image-title">Uploaded Image</span></button>
-                        </div>
-                    </div>
-                    </div>
-                    </div>
-                    <div class="p-t-15">
-                        <button class="btn btn--radius-2 btn--blue" type="submit" id="reg_btn">Submit</button>
-                    </div>
+                    <form action="succeed_db.php?<?php echo $id?>" method="POST" name=image" enctype="multipart/form-data"  class="form-horizontal">
+                    <div class="container-fluid px-4">
+                        <h1 class="mt-4">เพิ่มรูปใบรับรอง</h1>
+                        <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+                            <div class="file-upload">
+                            <div class="image-upload-wrap">
+                                <input class="file-upload-input" name="image" id="image" type='file' onchange="readURL(this);" accept="image/png, image/jpeg" />
+                                <input type="hidden" name="id" id="id" value="<?php echo $id ?>">
+                                
+                                <div class="drag-text">
+                                <h3>ลากและวางรูปภาพหรือเลือกเพิ่มรูปภาพ</h3>
+                                </div>
+                            </div>
+                            <div class="file-upload-content">
+                                <img class="file-upload-image" src="#" alt="your image" />
+                                <div class="image-title-wrap">
+                                <button type="button" onclick="removeUpload()" class="remove-image">ลบรูป <span class="image-title">Uploaded Image</span></button>
+                                </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class="p-t-15">
+                                <button class="btn btn--radius-2 btn--blue" type="submit" id="reg_btn">ยืนยัน</button>
+                            </div>
+                    </form>
                 </main>
                 
             </div>

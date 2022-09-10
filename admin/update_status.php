@@ -5,12 +5,20 @@ include('../condb.php');  //ไฟล์เชื่อมต่อกับ dat
 //สร้างตัวแปรสำหรับรับค่า member_id จากไฟล์แสดงข้อมูล
 $id = $_REQUEST["ID"];
 $status = $_POST["status"];
-$approved = $_POST["approved"];
+$approved = NULL;
+if ($status == 3) {
+  $approved = $_POST["approved"];
+}
+
 
 //ลบข้อมูลออกจาก database ตาม member_id ที่ส่งมา
-
-$sql = "UPDATE petition SET status = '$status' WHERE MD5(id_petition) ='$id'";
+if ($approved != NULL) {
+  $sql = "UPDATE petition SET status = '$status' ,approved = '$approved' WHERE MD5(id_petition) ='$id'";
+}else{
+  $sql = "UPDATE petition SET status = '$status' WHERE MD5(id_petition) ='$id'";
+}
 $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_error($con));
+
 
   
   if($result){
@@ -18,7 +26,7 @@ $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_erro
       if($approved == 1){
         echo "<script type='text/javascript'>";
         echo "alert('Update Succesfuly');";
-        echo "window.location = 'succeed.php';";
+        echo "window.location = 'succeed.php?ID=$id';";
         echo "</script>";
       }elseif($approved == 0){
         echo "<script type='text/javascript'>";

@@ -80,14 +80,18 @@
                                                 <td bgcolor="88FFEF"> กำลังดำเนินการ </td>
                                             <?php }elseif($row_am['status'] == 3){?>
                                                 <td bgcolor="A4FB00"> เสร็จสิ้น <?php if ($row_am['approved'] == 1) {
-                                                    ?> (อนุมัติ) <a href="#" class="btn btn-info btn-sm"> ดูใบรับรอง</a> <?php
+                                                    ?> (อนุมัติ)<?php
                                                 }elseif ($row_am['approved'] == 0) {
                                                     ?> (ไม่อนุมัติ) <?php
                                                 } ?></td>
                                             <?php } ?>
                                             <td>
                                                 <a href="detail_petition.php?ID=<?php echo md5($row_am['id_petition']); ?>" class="btn btn-info btn-sm"> รายละเอียด</a>
-                                                
+                                                <?php 
+                                                    if ($row_am['status'] == 3 && $row_am['approved'] == 1) {
+                                                       ?> <a href="img_gap.php?ID=<?php echo md5($row_am['id_petition']); ?>" class="btn btn-info btn-sm"> ดูใบรับรอง</a> <?php
+                                                    }
+                                                ?>
                                         
                                             </td>
                                         </tr>
