@@ -5,6 +5,7 @@ include('../condb.php');  //ไฟล์เชื่อมต่อกับ dat
 //สร้างตัวแปรสำหรับรับค่า member_id จากไฟล์แสดงข้อมูล
 $id = $_REQUEST["ID"];
 $status = $_POST["status"];
+$approved = $_POST["approved"];
 
 //ลบข้อมูลออกจาก database ตาม member_id ที่ส่งมา
 
@@ -14,9 +15,20 @@ $result = mysqli_query($con, $sql) or die ("Error in query: $sql " . mysqli_erro
   
   if($result){
     if ($status == 3) {
+      if($approved == 1){
         echo "<script type='text/javascript'>";
         echo "alert('Update Succesfuly');";
         echo "window.location = 'succeed.php';";
+        echo "</script>";
+      }elseif($approved == 0){
+        echo "<script type='text/javascript'>";
+        echo "alert('Update Succesfuly');";
+        echo "window.location = 'list_petition.php';";
+        echo "</script>";
+      }
+        echo "<script type='text/javascript'>";
+        echo "alert('Update Succesfuly');";
+        echo "window.location = 'list_petition.php';";
         echo "</script>";
         
     }else{

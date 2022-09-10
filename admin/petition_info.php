@@ -113,7 +113,20 @@
                         
                         </div>
                     </div>
+                    <div class="row row-space">
+                        <div class="col-2">
+                            <div class="input-group"> 
+                                <label class="label">ผลการอนุมัติ</label>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="input-group"> 
+                                <select class="form-control" name="approved" id="approved" value="NULL">
+                                </select>
+                            </div>
+                        </div>
                     </div>
+                </div>
                     <?php 
                     if ($row_am['status'] != 3) {
                         ?> 
@@ -126,8 +139,6 @@
 
                     }
                     ?>
-                
-
                 </form>
             </div>
         </div>
@@ -155,7 +166,7 @@
       url: "ajax_succeed.php",
       data: {status:status,function:'succeed'},
       success: function(data){
-          $('#status').html(data); 
+        $('#approved').html(data); 
       }
     });
   });
