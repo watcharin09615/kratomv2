@@ -47,6 +47,7 @@
                                         <tr>
                                             <th>Name</th>
                                             <th>วันที่ยื่นคำร้อง</th>
+                                            <th>วันที่ดำเนินการเสร็จสิ้น</th>
                                             <th>สายพันธ์ุ</th>
                                             <th>สถานะ</th>
                                             <th>รายละเอียด</th>
@@ -73,11 +74,12 @@
                                         <tr>
                                             <td><?php echo $row_am['name']; echo " "; echo $row_am['lastname']; ?></td>
                                             <td><?php echo $row_am['petition_date']; ?></td>
+                                            <td><?php echo $row_am['succes_date']; ?></td>
                                             <td><?php echo $row_am['species']; ?></td>
                                             <?php if($row_am['status'] == 1){ ?>
                                                 <td bgcolor="FFFF89"> รอการตรวจสอบ </td>
                                             <?php }elseif($row_am['status'] == 2){ ?>
-                                                <td bgcolor="88FFEF"> กำลังดำเนินการ </td>
+                                                <td bgcolor="88FFEF"> ส่งคำร้องไปยังกรมเกษตรแล้ว </td>
                                             <?php }elseif($row_am['status'] == 3){?>
                                                 <td bgcolor="A4FB00"> เสร็จสิ้น <?php if ($row_am['approved'] == 1) {
                                                     ?> (อนุมัติ)<?php

@@ -9897,14 +9897,17 @@ INSERT INTO `districts` (`id`, `zip_code`, `name_di`, `name_en`, `amphure_id`) V
 -- Dumping structure for table kratom.img
 CREATE TABLE IF NOT EXISTS `img` (
   `id_img` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `petition_id` int(11) DEFAULT NULL,
-  `img` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `petition_id` varchar(33) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `img` varchar(41) COLLATE utf8_unicode_ci DEFAULT NULL,
   `status` int(11) DEFAULT '1',
+  `blockchain` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id_img`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- Dumping data for table kratom.img: ~0 rows (approximately)
+-- Dumping data for table kratom.img: ~1 rows (approximately)
 /*!40000 ALTER TABLE `img` DISABLE KEYS */;
+INSERT INTO `img` (`id_img`, `petition_id`, `img`, `status`, `blockchain`) VALUES
+	(9, '45c48cce2e2d7fbdea1afc51c7c6ad26', 'GAP_45c48cce2e2d7fbdea1afc51c7c6ad26.jpg', 1, NULL);
 /*!40000 ALTER TABLE `img` ENABLE KEYS */;
 
 -- Dumping structure for table kratom.infouser
@@ -9947,11 +9950,11 @@ CREATE TABLE IF NOT EXISTS `petition` (
   PRIMARY KEY (`id_petition`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
--- Dumping data for table kratom.petition: ~2 rows (approximately)
+-- Dumping data for table kratom.petition: ~3 rows (approximately)
 /*!40000 ALTER TABLE `petition` DISABLE KEYS */;
 INSERT INTO `petition` (`id_user`, `id_petition`, `species`, `quantity`, `address_farm`, `sub_area`, `area`, `province`, `zip_code`, `tel`, `status`, `petition_date`, `succes_date`, `approved`) VALUES
 	(15, 6, 'www', 222, '222', '250703', '195', '16', '25130', '0622266723', 1, '2022-09-08 15:58:51', NULL, NULL),
-	(15, 8, 'ก้านแดง', 50, '392/2 ม.9', '931004', '963', '73', '93210', '0622266723', 3, '2022-09-08 21:46:38', NULL, 0),
+	(15, 8, 'ก้านแดง', 20, '392/2 ม.9', '931004', '963', '73', '93210', '0622266723', 1, '2022-09-08 21:46:38', NULL, NULL),
 	(16, 9, 'ก้านเขียว', 20, 'นาโพธิ์', '800912', '844', '63', '80110', '0622222222', 3, '2022-09-09 14:57:41', NULL, 1);
 /*!40000 ALTER TABLE `petition` ENABLE KEYS */;
 

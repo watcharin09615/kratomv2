@@ -13,7 +13,7 @@ if ($status == 3) {
 
 //ลบข้อมูลออกจาก database ตาม member_id ที่ส่งมา
 if ($approved != NULL) {
-  $sql = "UPDATE petition SET status = '$status' ,approved = '$approved' WHERE MD5(id_petition) ='$id'";
+  $sql = "UPDATE petition SET status = '$status' ,approved = '$approved' ,succes_date = CURRENT_TIMESTAMP WHERE MD5(id_petition) ='$id'";
 }else{
   $sql = "UPDATE petition SET status = '$status' WHERE MD5(id_petition) ='$id'";
 }

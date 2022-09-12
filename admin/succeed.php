@@ -25,7 +25,7 @@
                 <main>
                     <form action="succeed_db.php?<?php echo $id?>" method="POST" name=image" enctype="multipart/form-data"  class="form-horizontal">
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">เพิ่มรูปใบรับรอง</h1>
+                        <h1 class="mt-4">เพิ่มใบรับรอง</h1>
                         <script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
                             <div class="file-upload">
                             <div class="image-upload-wrap">
